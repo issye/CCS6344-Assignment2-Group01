@@ -1,6 +1,6 @@
 resource "aws_security_group" "alb_sg" {
   name   = "alb-sg"
-  vpc_id = aws_vpc.main.id
+  vpc_id =  vpc_id = data.aws_vpc.default.id
 
   ingress {
     from_port   = 443
