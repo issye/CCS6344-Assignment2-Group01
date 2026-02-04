@@ -5,11 +5,12 @@ import os
 app = Flask(__name__)
 
 db_config = {
-    "host": os.environ.get("DB_HOST", "localhost"),
-    "user": os.environ.get("DB_USER", "root"),
-    "password": os.environ.get("DB_PASSWORD", "password"),
-    "database": os.environ.get("DB_NAME", "studentdb")
+    "host": "localhost",
+    "user": "root",
+    "password": "password123",
+    "database": "studentdb"
 }
+
 
 @app.route("/")
 def index():
