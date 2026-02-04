@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Student Records</title>
+
+    <!-- Link external CSS -->
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <div class="container">
+        <h1>Student Information System</h1>
+
+        <div class="system-info">
+    <div class="info-box">
+        <h3>Total Students</h3>
+        <p>{{ students|length }}</p>
+    </div>
+
+    <div class="info-box">
+        <h3>Active Courses</h3>
+        <p>{{ students|map(attribute='1')|unique|list|length }}</p>
+    </div>
+
+    <div class="info-box">
+        <h3>System Status</h3>
+        <p class="status-online">● Online</p>
+    </div>
+</div>
+
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Course</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for student in students %}
+        <tr>
+            <td>{{ student[0] }}</td>
+            <td>{{ student[1] }}</td>
+            <td>{{ student[2] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<p class="disclaimer">
+</p>
+
+
+</body>
+</html>
