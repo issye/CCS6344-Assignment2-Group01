@@ -35,9 +35,9 @@ resource "aws_wafv2_web_acl" "web_acl" {
     sampled_requests_enabled   = true
   }
 
+}
   resource "aws_wafv2_web_acl_association" "alb_assoc" {
   resource_arn = aws_lb.app_lb.arn
   web_acl_arn  = aws_wafv2_web_acl.web_acl.arn
-}
 
 }
